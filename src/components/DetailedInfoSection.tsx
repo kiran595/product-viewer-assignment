@@ -8,7 +8,7 @@ interface Props {
 
 const DetailedInfoSection: React.FC<Props> = ({ data }) => {
   return (
-    <Paper sx={{ mt: 4 }}>
+    <Paper sx={{ mt: 4, p: 1 }}>
       <Grid container spacing={2}>
         <Grid container size={12}>
           <Typography variant="h4" p={1}>
@@ -32,24 +32,9 @@ const DetailedInfoSection: React.FC<Props> = ({ data }) => {
           <Divider />
         </Grid>
 
-        <Grid size={12}>
-          <Divider />
-        </Grid>
-
         <Grid container size={12}>
           <Typography variant="h4" pl={1}>
             Specifications of {data?.title}
-          </Typography>
-        </Grid>
-
-        <Grid size={12}>
-          <Typography
-            variant="body1"
-            sx={{
-              pl: 2
-            }}
-          >
-            {data?.description ? data?.description : ''}
           </Typography>
         </Grid>
 
@@ -63,7 +48,7 @@ const DetailedInfoSection: React.FC<Props> = ({ data }) => {
               }}
             >
               <strong>Brand </strong> <br />
-              {data?.brand ? data?.brand : ''}
+              {data?.brand ? data?.brand : '-'}
             </Typography>
           </Grid>
 

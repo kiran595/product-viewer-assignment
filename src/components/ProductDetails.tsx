@@ -152,7 +152,7 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
                         component="div"
                         pl={1}
                       >
-                        {data?.brand}
+                        {data?.brand ? data?.brand : '-'}
                       </Typography>
                     </Box>
                   </Grid>
@@ -167,11 +167,11 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
                   >
                     <Typography variant="h2" color="#f57224">
                       {data?.discountPercentage
-                        ? calculateDiscount(
+                        ? `Rs ${calculateDiscount(
                             data?.price,
                             data?.discountPercentage
-                          )
-                        : data?.price}
+                          )}`
+                        : `Rs ${data?.price}`}
                     </Typography>
                   </Grid>
                   <Grid
@@ -187,7 +187,7 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
                           textDecoration: 'line-through'
                         }}
                       >
-                        {data?.price}
+                        {data?.price ? `Rs ${data?.price}` : ''}
                       </Typography>
                       <Typography variant="h5" pl={1}>
                         {data?.discountPercentage
@@ -277,10 +277,8 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
                     <Grid size={12}>
                       <Typography
                         variant="body2"
-                        sx={{
-                          color: 'text.secondary'
-                        }}
                         align={onlyXsSize ? 'center' : undefined}
+                        pl={1}
                       >
                         Scan with mobile
                       </Typography>

@@ -46,8 +46,11 @@ const ProductCard: React.FC<Product> = (item) => {
             <Grid size={12}>
               <Typography variant="h4" color="#f57224">
                 {item?.discountPercentage
-                  ? calculateDiscount(item?.price, item?.discountPercentage)
-                  : item?.price}
+                  ? `Rs ${calculateDiscount(
+                      item?.price,
+                      item?.discountPercentage
+                    )}`
+                  : `Rs ${item?.price}`}
               </Typography>
             </Grid>
             <Grid size={12}>
@@ -59,7 +62,7 @@ const ProductCard: React.FC<Product> = (item) => {
                     textDecoration: 'line-through'
                   }}
                 >
-                  {item?.price}
+                  {item?.price ? `Rs ${item?.price}` : ''}
                 </Typography>
                 <Typography variant="body2" pl={1}>
                   {item?.discountPercentage

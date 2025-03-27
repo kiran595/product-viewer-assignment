@@ -9,7 +9,7 @@ interface Props {
 
 const RatingSection: React.FC<Props> = ({ data }) => {
   return (
-    <Paper sx={{ mt: 4 }}>
+    <Paper sx={{ mt: 4, p: 1 }}>
       <Grid container spacing={2}>
         <Grid container size={12}>
           <Typography variant="h4" p={1}>
@@ -32,7 +32,7 @@ const RatingSection: React.FC<Props> = ({ data }) => {
             variant="body1"
             sx={{
               color: 'text.secondary',
-              pl: 2
+              pl: 2.4
             }}
           >
             {data?.reviews ? `${data?.reviews?.length}` : ''} Ratings
@@ -80,7 +80,9 @@ const RatingSection: React.FC<Props> = ({ data }) => {
                       }}
                       align="right"
                     >
-                      {item?.date ? moment(item?.date).format('MMM Do YY') : ''}
+                      {item?.date
+                        ? moment(item?.date).format('MMM Do YYYY')
+                        : ''}
                     </Typography>
                   </Grid>
                 </Grid>
