@@ -8,10 +8,11 @@ import { useNavigate } from 'react-router-dom';
 
 interface Props {
   setSelectedItem: (params?: Product) => void;
+  closeDrawer?: any;
   selectedItem?: Product;
 }
 
-const ProductList: React.FC<Props> = ({ setSelectedItem, selectedItem }) => {
+const ProductList: React.FC<Props> = ({ setSelectedItem, closeDrawer }) => {
   const { data, isLoading, error } = useQuery({
     queryKey: ['product-list'],
     queryFn: async () => getAllProducts()
@@ -29,6 +30,7 @@ const ProductList: React.FC<Props> = ({ setSelectedItem, selectedItem }) => {
               onClick={() => {
                 navigate(`/product/${item?.id}`);
                 setSelectedItem(item);
+                closeDrawer();
               }}
             >
               <ProductCard {...item} />

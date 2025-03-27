@@ -30,6 +30,10 @@ const App: React.FC = () => {
     setOpen(newOpen);
   };
 
+  const closeDrawer = () => {
+    setOpen(false);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
@@ -104,6 +108,7 @@ const App: React.FC = () => {
                 <ProductList
                   setSelectedItem={setSelectedItem}
                   selectedItem={selectedItem}
+                  closeDrawer={closeDrawer}
                 />
               </div>
             </Box>
@@ -121,6 +126,7 @@ const App: React.FC = () => {
                   <ProductList
                     setSelectedItem={setSelectedItem}
                     selectedItem={selectedItem}
+                    closeDrawer={closeDrawer}
                   />
                 </div>
               </Box>
