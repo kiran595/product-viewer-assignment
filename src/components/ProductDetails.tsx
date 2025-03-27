@@ -43,8 +43,13 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
   return (
     <>
       {isLoading && (
-        <Grid container justifyContent={'center'} alignItems={'center'}>
-          <CircularProgress size={30} />
+        <Grid
+          container
+          justifyContent={'center'}
+          alignItems={'center'}
+          size={12}
+        >
+          <CircularProgress size={30} sx={{ mt: 5 }} />
         </Grid>
       )}
       {error && <Typography variant="h5">Error...</Typography>}
