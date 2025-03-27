@@ -132,7 +132,11 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
                     </Box>
                   </Grid>
 
-                  <Grid size={12}>
+                  <Grid
+                    size={12}
+                    container
+                    justifyContent={onlyXsSize ? 'center' : undefined}
+                  >
                     <Box sx={{ display: 'inline-flex' }}>
                       <Typography
                         gutterBottom
@@ -156,7 +160,11 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
                   <Grid size={12}>
                     <Divider />
                   </Grid>
-                  <Grid size={12}>
+                  <Grid
+                    size={12}
+                    container
+                    justifyContent={onlyXsSize ? 'center' : undefined}
+                  >
                     <Typography variant="h2" color="#f57224">
                       {data?.discountPercentage
                         ? calculateDiscount(
@@ -166,7 +174,11 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
                         : data?.price}
                     </Typography>
                   </Grid>
-                  <Grid size={12}>
+                  <Grid
+                    size={12}
+                    container
+                    justifyContent={onlyXsSize ? 'center' : undefined}
+                  >
                     <Box sx={{ display: 'inline-flex' }}>
                       <Typography
                         variant="h5"
@@ -189,7 +201,11 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
                     <Divider />
                   </Grid>
 
-                  <Grid size={12}>
+                  <Grid
+                    size={12}
+                    container
+                    justifyContent={onlyXsSize ? 'center' : undefined}
+                  >
                     <Box sx={{ display: 'inline-flex' }}>
                       <Typography
                         variant="h5"
@@ -213,9 +229,18 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
                   </Grid>
                   <Divider />
 
-                  <Grid container size={12}>
+                  <Grid
+                    container
+                    size={12}
+                    justifyContent={onlyXsSize ? 'center' : undefined}
+                  >
                     <Grid size={12}>
-                      <Typography variant="h4">Returns and Warranty</Typography>
+                      <Typography
+                        variant="h4"
+                        align={onlyXsSize ? 'center' : undefined}
+                      >
+                        Returns and Warranty
+                      </Typography>
                     </Grid>
 
                     <Typography
@@ -238,7 +263,11 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
                   </Grid>
 
                   <Grid container size={12}>
-                    <Grid size={12}>
+                    <Grid
+                      size={12}
+                      container
+                      justifyContent={onlyXsSize ? 'center' : undefined}
+                    >
                       <img
                         src={data?.meta?.qrCode}
                         alt={'qr'}
@@ -251,6 +280,7 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
                         sx={{
                           color: 'text.secondary'
                         }}
+                        align={onlyXsSize ? 'center' : undefined}
                       >
                         Scan with mobile
                       </Typography>

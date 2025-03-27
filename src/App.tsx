@@ -6,13 +6,29 @@ import { ThemeProvider } from '@mui/material/styles';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import theme from './theme';
 import { Product } from './types/types';
-import { Box, Breadcrumbs, Grid, Link, Typography } from '@mui/material';
+import {
+  Box,
+  Breadcrumbs,
+  Button,
+  Drawer,
+  Grid,
+  IconButton,
+  Link,
+  Tooltip,
+  Typography
+} from '@mui/material';
 import NotFound from './assets/img/not-found.jpg';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const queryClient = new QueryClient();
 
 const App: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<Product | undefined>();
+  const [open, setOpen] = React.useState(false);
+
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setOpen(newOpen);
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -27,6 +43,17 @@ const App: React.FC = () => {
           >
             {/* Left side: Product details (or placeholder) */}
             <div style={{ flex: 1, overflowY: 'auto' }}>
+              <Box sx={{ display: { sm: 'none', xs: 'block' } }}>
+                <Tooltip
+                  placement="bottom"
+                  title="Click Here To Get Item List "
+                >
+                  <IconButton onClick={toggleDrawer(true)}>
+                    <MenuIcon />
+                  </IconButton>
+                </Tooltip>
+              </Box>
+
               <Routes>
                 <Route
                   path="/product/:id"
@@ -70,7 +97,8 @@ const App: React.FC = () => {
                   width: '300px',
                   borderLeft: '1px solid #ccc',
                   overflowY: 'auto',
-                  padding: '20px'
+                  padding: '20px',
+                  height: '100vh'
                 }}
               >
                 <ProductList
@@ -79,6 +107,24 @@ const App: React.FC = () => {
                 />
               </div>
             </Box>
+
+            <Drawer open={open} onClose={toggleDrawer(false)}>
+              <Box sx={{ display: { sm: 'none', xs: 'block' } }}>
+                <div
+                  style={{
+                    width: '300px',
+                    borderLeft: '1px solid #ccc',
+                    overflowY: 'auto',
+                    padding: '20px'
+                  }}
+                >
+                  <ProductList
+                    setSelectedItem={setSelectedItem}
+                    selectedItem={selectedItem}
+                  />
+                </div>
+              </Box>
+            </Drawer>
           </div>
         </Router>
       </QueryClientProvider>
