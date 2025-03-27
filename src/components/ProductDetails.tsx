@@ -267,7 +267,7 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
                     </Typography>
                   </Grid>
 
-                  <Grid container size={12}>
+                  <Grid container size={12} spacing={0}>
                     <Grid
                       size={12}
                       container
@@ -284,6 +284,7 @@ const ProductDetails: React.FC<Props> = ({ selectedItem }) => {
                         variant="body2"
                         align={onlyXsSize ? 'center' : undefined}
                         pl={1}
+                        mb={2}
                       >
                         Scan with mobile
                       </Typography>
