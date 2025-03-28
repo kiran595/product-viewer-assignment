@@ -10,7 +10,7 @@ import { calculateDiscount, stockStatus } from '../utils';
 
 const ProductCard: React.FC<Product> = (item) => {
   return (
-    <Card sx={{ maxWidth: 345, mb: 2 }}>
+    <Card sx={{ maxWidth: 345, height: 340, mb: 2 }}>
       <CardActionArea>
         <CardMedia
           component="img"

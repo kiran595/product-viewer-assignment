@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { getAllProducts } from '../api/product.api';
+import { getAllProductsForSidebar } from '../api/product.api';
 import { Box, Typography } from '@mui/material';
 import ProductCard from './ProductCard';
 import { Product } from '../types/types';
@@ -15,7 +15,7 @@ interface Props {
 const ProductList: React.FC<Props> = ({ setSelectedItem, closeDrawer }) => {
   const { data, isLoading, error } = useQuery({
     queryKey: ['product-list'],
-    queryFn: async () => getAllProducts()
+    queryFn: async () => getAllProductsForSidebar()
   });
   const navigate = useNavigate();
   return (
